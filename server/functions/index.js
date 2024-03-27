@@ -113,11 +113,7 @@ exports.deleteblogbyID = functions.https.onRequest(async (req, res) => {
   cors(req, res, async () => {
     try {
       const id = req.query.id;
-      const timestamp = FieldValue.serverTimestamp();
-      const data = {
-        timestamp,
-        ...req.body,
-      };
+
       if (!id) {
         return res.status(400).json({
           msg: "ID Parameter is missing",
